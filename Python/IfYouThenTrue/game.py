@@ -1,14 +1,16 @@
 #FORCA
 #Hangman
 import os
-from module import *
+from module import makeWord, attempt, cls
 
-#Cria a senha
+#Cria a senha pelo input
 #User input --> password
 word = makeWord()
 
 length = len(word)
 
+#Quantidade de vidas
+#Quantity of Lifes
 vidas = length
 
 #Lista das posteriores letras certas e "-"
@@ -21,7 +23,11 @@ for x in range(0,length):
     if word[x]==" ": result.append("*")
     else: result.append("-")
 
+
+
 while True:
+    #Vai ser usado para saber se o usuário deve perder uma vida ou não
+    #Flag. Will be used to decide if the user must lose a life or not
     acertou = False
     cls()
     
@@ -49,7 +55,7 @@ while True:
             acertou = True
 
     #Se não, perde uma vida
-    #If not, the user looses one life
+    #If not, the user loses one life
     if not acertou:
         vidas-=1
 
